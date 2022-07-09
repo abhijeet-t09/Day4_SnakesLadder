@@ -29,6 +29,7 @@ public class SnakesLadder {
 
         int position=0;
         int finalPosition=0;
+        int count=0;
 
         while(position < WIN_POSITION){
             int r1=rollDice();
@@ -55,9 +56,11 @@ public class SnakesLadder {
                     System.out.println("\nInvalid Roll!!");
             }
             finalPosition+=newPosition;
+            count+=1;
             position++;
         }
         System.out.println("You Reached Position "+position);
         System.out.println("CONGRATULATIONS !! YOU WON !!");
+        System.out.println("Total Iterations = "+count);
     }
 }
