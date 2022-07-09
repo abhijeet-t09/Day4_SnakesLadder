@@ -9,6 +9,7 @@ public class SnakesLadder {
     static final int MOVE_FORWARD=1;
     static final int MOVE_BACKWARDS=2;
 
+
     static int rollDice() {
         int n = 0;
         Random r = new Random();
@@ -16,12 +17,9 @@ public class SnakesLadder {
         return (n==0?1:n);
     }
 
-    //static int rollOption(){
-        //int roll = (int) Math.floor(Math.random() * 10) % 3;
-       // return roll;
-    //}
+
     public static void main(String[] args) {
-        //System.out.println("SNAKES n LADDER");
+
         Scanner sc=new Scanner(System.in);
         System.out.print("Enter Player No.: ");
         int playerNum=sc.nextInt();
@@ -40,16 +38,16 @@ public class SnakesLadder {
             int roll = (int) Math.floor(Math.random() * 10) % 3;
             switch (roll) {
                 case NO_PLAY:
-                    System.out.println("\nNO Play !!");
+                    System.out.println("NO Play !!\n");
                     break;
 
                 case MOVE_FORWARD:
-                    System.out.println("\nMove Forward " +r1+ " Places !!");
+                    System.out.println("Move Forward " +r1+ " Places !!\n");
                     newPosition=START_POSITION+r1;
                     break;
 
                 case MOVE_BACKWARDS:
-                    System.out.println("\nGo Back " +r1+ " Places !!");
+                    System.out.println("Go Back " +r1+ " Places !!\n");
                     newPosition=START_POSITION-r1;
                     break;
 
@@ -59,5 +57,7 @@ public class SnakesLadder {
             finalPosition+=newPosition;
             position++;
         }
+        System.out.println("You Reached Position "+position);
+        System.out.println("CONGRATULATIONS !! YOU WON !!");
     }
 }
