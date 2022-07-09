@@ -20,47 +20,47 @@ public class SnakesLadder {
 
     public static void main(String[] args) {
 
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter Player No.: ");
-        int playerNum=sc.nextInt();
-        System.out.println("Player "+playerNum+" statring from "+START_POSITION);
+        int playerNum=2;
+        for(int i=1; i<=playerNum; i++){
+            System.out.println("Player "+i+" statring from "+START_POSITION);
 
-        System.out.println("\nRoll Dice !!");
+            System.out.println("\nRoll Dice !!");
 
-        int position=0;
-        int finalPosition=0;
-        int count=0;
+            int position=0;
+            int finalPosition=0;
+            int count=0;
 
-        while(position < WIN_POSITION){
-            int r1=rollDice();
-            System.out.println("You Rolled "+r1);
-            int newPosition=0;
+            while(position < WIN_POSITION){
+                int r1=rollDice();
+                System.out.println("You Rolled "+r1);
+                int newPosition=0;
 
-            int roll = (int) Math.floor(Math.random() * 10) % 3;
-            switch (roll) {
-                case NO_PLAY:
-                    System.out.println("NO Play !!\n");
-                    break;
+                int roll = (int) Math.floor(Math.random() * 10) % 3;
+                switch (roll) {
+                    case NO_PLAY:
+                        System.out.println("NO Play !!\n");
+                        break;
 
-                case MOVE_FORWARD:
-                    System.out.println("Move Forward " +r1+ " Places !!\n");
-                    newPosition=START_POSITION+r1;
-                    break;
+                    case MOVE_FORWARD:
+                        System.out.println("Move Forward " +r1+ " Places !!\n");
+                        newPosition=START_POSITION+r1;
+                        break;
 
-                case MOVE_BACKWARDS:
-                    System.out.println("Go Back " +r1+ " Places !!\n");
-                    newPosition=START_POSITION-r1;
-                    break;
+                    case MOVE_BACKWARDS:
+                        System.out.println("Go Back " +r1+ " Places !!\n");
+                        newPosition=START_POSITION-r1;
+                        break;
 
-                default:
-                    System.out.println("\nInvalid Roll!!");
+                    default:
+                        System.out.println("\nInvalid Roll!!");
+                }
+                finalPosition+=newPosition;
+                count+=1;
+                position++;
             }
-            finalPosition+=newPosition;
-            count+=1;
-            position++;
+            System.out.println("You Reached Position "+position);
+            System.out.println("CONGRATULATIONS !! YOU WON !!");
+            System.out.println("Total Iterations = "+count+"\n\n");
         }
-        System.out.println("You Reached Position "+position);
-        System.out.println("CONGRATULATIONS !! YOU WON !!");
-        System.out.println("Total Iterations = "+count);
     }
 }
