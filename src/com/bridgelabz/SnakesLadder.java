@@ -16,10 +16,10 @@ public class SnakesLadder {
         return (n==0?1:n);
     }
 
-    static int rollOption(){
-        int roll = (int) Math.floor(Math.random() * 10) % 3;
-        return roll;
-    }
+    //static int rollOption(){
+        //int roll = (int) Math.floor(Math.random() * 10) % 3;
+       // return roll;
+    //}
     public static void main(String[] args) {
         //System.out.println("SNAKES n LADDER");
         Scanner sc=new Scanner(System.in);
@@ -27,21 +27,37 @@ public class SnakesLadder {
         int playerNum=sc.nextInt();
         System.out.println("Player "+playerNum+" statring from "+START_POSITION);
 
-        System.out.println("Roll Dice !!");
-        int r1=rollDice();
-        System.out.println("You Rolled "+r1);
+        System.out.println("\nRoll Dice !!");
 
-        switch (rollOption()) {
-            case MOVE_FORWARD:
-                System.out.println("Move Forward " +r1+ " Places !!");
-                break;
+        int position=0;
+        int finalPosition=0;
 
-            case MOVE_BACKWARDS:
-                System.out.println("Move Backwards " +r1+ " Places !!");
-                break;
+        while(position < WIN_POSITION){
+            int r1=rollDice();
+            System.out.println("You Rolled "+r1);
+            int newPosition=0;
 
-            default:
-                System.out.println("Invalid Roll: NO PLAY !!");
+            int roll = (int) Math.floor(Math.random() * 10) % 3;
+            switch (roll) {
+                case NO_PLAY:
+                    System.out.println("\nNO Play !!");
+                    break;
+
+                case MOVE_FORWARD:
+                    System.out.println("\nMove Forward " +r1+ " Places !!");
+                    newPosition=START_POSITION+r1;
+                    break;
+
+                case MOVE_BACKWARDS:
+                    System.out.println("\nGo Back " +r1+ " Places !!");
+                    newPosition=START_POSITION-r1;
+                    break;
+
+                default:
+                    System.out.println("\nInvalid Roll!!");
+            }
+            finalPosition+=newPosition;
+            position++;
         }
     }
 }
