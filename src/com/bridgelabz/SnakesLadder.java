@@ -14,7 +14,7 @@ public class SnakesLadder {
         int n = 0;
         Random r = new Random();
         n=1+r.nextInt(6);
-        return (n==0?1:n);
+        return n;
     }
 
 
